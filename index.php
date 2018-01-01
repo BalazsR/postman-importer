@@ -3,7 +3,7 @@
 //Include composer autoload
 include './vendor/autoload.php';
 
-use PostmanImporter\Importer;
+use HarToPostmanCollection\Importer;
 
 //Create importer and run
 $importer = new Importer(__DIR__);

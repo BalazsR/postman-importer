@@ -1,6 +1,6 @@
 <?php
 
-namespace PostmanImporter;
+namespace HarToPostmanCollection;
 
 use Exception;
 

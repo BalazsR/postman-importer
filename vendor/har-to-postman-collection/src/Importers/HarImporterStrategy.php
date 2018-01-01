@@ -1,16 +1,16 @@
 <?php
 
-namespace PostmanImporter\Importers;
+namespace HarToPostmanCollection\Importers;
 
-use PostmanImporter\ImporterStrategyInterface;
-use PostmanImporter\SourceFile;
-use PostmanImporter\Collection\Collection;
-use PostmanImporter\Collection\Item;
-use PostmanImporter\Collection\ItemRequest;
-use PostmanImporter\Collection\ItemRequestBody;
-use PostmanImporter\Collection\ItemRequestData;
-use PostmanImporter\Collection\ItemRequestHeader;
-use PostmanImporter\Helpers\PayloadParserHelper;
+use HarToPostmanCollection\ImporterStrategyInterface;
+use HarToPostmanCollection\SourceFile;
+use HarToPostmanCollection\Collection\Collection;
+use HarToPostmanCollection\Collection\Item;
+use HarToPostmanCollection\Collection\ItemRequest;
+use HarToPostmanCollection\Collection\ItemRequestBody;
+use HarToPostmanCollection\Collection\ItemRequestData;
+use HarToPostmanCollection\Collection\ItemRequestHeader;
+use HarToPostmanCollection\Helpers\PayloadParserHelper;
 
 /**
  * Description of HarImporterStrategy

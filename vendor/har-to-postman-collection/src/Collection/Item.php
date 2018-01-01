@@ -1,6 +1,6 @@
 <?php
 
-namespace PostmanImporter\Collection;
+namespace HarToPostmanCollection\Collection;
 
 /**
  * Description of Item

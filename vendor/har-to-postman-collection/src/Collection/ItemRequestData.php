@@ -1,13 +1,16 @@
 <?php
 
-namespace PostmanImporter\Collection;
+namespace HarToPostmanCollection\Collection;
 
 /**
- * Description of ItemRequestHeader
+ * Description of ItemRequestData
  *
  * @author gustavo-rodriguez
  */
-class ItemRequestHeader {
+class ItemRequestData {
+
+    //Types
+    const BODY_TEXT_TYPE = 'text';
 
     /**
      *
@@ -25,7 +28,7 @@ class ItemRequestHeader {
      *
      * @var string 
      */
-    protected $description;
+    protected $type;
 
     /**
      * 
@@ -47,8 +50,8 @@ class ItemRequestHeader {
      * 
      * @return string
      */
-    public function getDescription() {
-        return $this->description;
+    public function getType() {
+        return $this->type;
     }
 
     /**
@@ -69,12 +72,12 @@ class ItemRequestHeader {
 
     /**
      * 
-     * @param string $description
+     * @param string $type
      */
-    public function setDescription($description) {
-        $this->description = $description;
+    public function setType($type) {
+        $this->type = $type;
     }
-    
+
     /**
      * 
      * @return array
@@ -83,7 +86,7 @@ class ItemRequestHeader {
         return [
             'key' => $this->key,
             'value' => $this->value,
-            'description' => $this->description
+            'type' => self::BODY_TEXT_TYPE
         ];
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace PostmanImporter;
+namespace HarToPostmanCollection;
 
-use PostmanImporter\Importers\HarImporterStrategy;
-use PostmanImporter\SourceFile;
+use HarToPostmanCollection\Importers\HarImporterStrategy;
+use HarToPostmanCollection\SourceFile;
 
 /**
  * Description of ImporterStrategyFactory

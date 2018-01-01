@@ -1,6 +1,6 @@
 <?php
 
-namespace PostmanImporter\Helpers;
+namespace HarToPostmanCollection\Helpers;
 
 /**
  * Description of PayloadParserHelper

@@ -1,8 +1,8 @@
 <?php
 
-namespace PostmanImporter;
+namespace HarToPostmanCollection;
 
-use PostmanImporter\Collection\Collection;
+use HarToPostmanCollection\Collection\Collection;
 use Exception;
 
 /**
