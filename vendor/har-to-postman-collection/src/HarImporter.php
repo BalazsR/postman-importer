@@ -1,8 +1,7 @@
 <?php
 
-namespace HarToPostmanCollection\Importers;
+namespace HarToPostmanCollection;
 
-use HarToPostmanCollection\ImporterStrategyInterface;
 use HarToPostmanCollection\SourceFile;
 use HarToPostmanCollection\Collection\Collection;
 use HarToPostmanCollection\Collection\Item;
@@ -12,7 +11,7 @@ use HarToPostmanCollection\Collection\ItemRequestData;
 use HarToPostmanCollection\Collection\ItemRequestHeader;
 use HarToPostmanCollection\Helpers\PayloadParserHelper;
 
-class HarImporterStrategy implements ImporterStrategyInterface {
+class HarImporter {
 
     /**
      * Ignore regex urls

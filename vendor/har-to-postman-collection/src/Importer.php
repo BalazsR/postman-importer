@@ -4,30 +4,35 @@ namespace HarToPostmanCollection;
 
 use HarToPostmanCollection\Collection\Collection;
 use Exception;
+use HarToPostmanCollection\HarImporter;
 
-class Importer {
+class Importer
+{
 
     const SOURCE_DIRECTORY = '/src/';
     const DESTINATION_DIRECTORY = '/dist/';
+    const HAR_EXTENSION = "har";
 
     /**
      *
-     * @var string 
+     * @var string
      */
     protected $baseUrl;
 
     /**
-     * 
+     *
      * @param string $baseUrl
      */
-    public function __construct($baseUrl) {
+    public function __construct($baseUrl)
+    {
         $this->baseUrl = $baseUrl;
     }
 
     /**
      * Import file based in base url
      */
-    public function run() {
+    public function run()
+    {
         $result = [];
         $srcDir = $this->baseUrl . self::SOURCE_DIRECTORY;
         $distDir = $this->baseUrl . self::DESTINATION_DIRECTORY;
@@ -41,25 +46,25 @@ class Importer {
             //Control scandir resturn
             if (is_array($files) && count($files)) {
                 foreach ($files as $file) {
+
                     //Create sosurceFile
                     $sourceFile = new SourceFile($srcDir, $file);
 
-                    //Get importer strategy
-                    $strategy = ImporterStrategyFactory::create($sourceFile);
+                    if ($sourceFile->getExtension() != self::HAR_EXTENSION) {
+                        continue;
+                    }
 
-                    //Check strategy
-                    if ($strategy instanceof ImporterStrategyInterface) {
-                        //Import strategy
-                        $collection = $strategy->import($sourceFile);
+                    $harImporter = new HarImporter();
 
-                        //Set false as default
-                        $result[$file] = false;
+                    $collection = $harImporter->import($sourceFile);
 
-                        //Check result
-                        if ($collection instanceof Collection) {
-                            //Write to disk
-                            $result[$file] = $this->writeCollectionToDisk($collection, $distDir, $sourceFile);
-                        }
+                    //Set false as default
+                    $result[$file] = false;
+
+                    //Check result
+                    if ($collection instanceof Collection) {
+                        //Write to disk
+                        $result[$file] = $this->writeCollectionToDisk($collection, $distDir, $sourceFile);
                     }
                 }
             }
@@ -68,16 +73,17 @@ class Importer {
     }
 
     /**
-     * 
+     *
      * @param SourceFile $sourceFile
      * @return array
      */
-    private function writeCollectionToDisk(Collection $collection, $baseUrl, SourceFile $sourceFile) {
+    private function writeCollectionToDisk(Collection $collection, $baseUrl, SourceFile $sourceFile)
+    {
         $result = false;
 
         try {
             $fileName = $sourceFile->getName();
-            
+
             //Parse base name
             $baseName = sprintf('%s.%s', $fileName, Collection::EXTENSION);
 
