@@ -5,11 +5,6 @@ namespace HarToPostmanCollection;
 use HarToPostmanCollection\Importers\HarImporterStrategy;
 use HarToPostmanCollection\SourceFile;
 
-/**
- * Description of ImporterStrategyFactory
- *
- * @author gustavo-rodriguez
- */
 class ImporterStrategyFactory {
     
     /**

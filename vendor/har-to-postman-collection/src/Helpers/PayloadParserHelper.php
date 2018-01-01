@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Helpers;
 
-/**
- * Description of PayloadParserHelper
- *
- * @author gustavo-rodriguez
- */
 class PayloadParserHelper {
 
     /**

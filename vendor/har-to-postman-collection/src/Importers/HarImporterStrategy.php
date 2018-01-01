@@ -12,11 +12,6 @@ use HarToPostmanCollection\Collection\ItemRequestData;
 use HarToPostmanCollection\Collection\ItemRequestHeader;
 use HarToPostmanCollection\Helpers\PayloadParserHelper;
 
-/**
- * Description of HarImporterStrategy
- *
- * @author gustavo-rodriguez
- */
 class HarImporterStrategy implements ImporterStrategyInterface {
 
     /**

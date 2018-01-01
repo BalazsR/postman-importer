@@ -5,11 +5,6 @@ namespace HarToPostmanCollection;
 use HarToPostmanCollection\Collection\Collection;
 use Exception;
 
-/**
- * Description of Importer
- *
- * @author gustavo-rodriguez
- */
 class Importer {
 
     const SOURCE_DIRECTORY = '/src/';

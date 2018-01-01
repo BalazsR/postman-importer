@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of ItemEventScript
- *
- * @author gustavo-rodriguez
- */
 class ItemEventScript {
 
     /**

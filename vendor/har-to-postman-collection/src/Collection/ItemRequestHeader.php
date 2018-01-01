@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of ItemRequestHeader
- *
- * @author gustavo-rodriguez
- */
 class ItemRequestHeader {
 
     /**

@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of Item
- *
- * @author gustavo-rodriguez
- */
 class Item {
 
     /**

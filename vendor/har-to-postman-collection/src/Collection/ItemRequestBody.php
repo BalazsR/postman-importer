@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of ItemRequestBody
- *
- * @author gustavo-rodriguez
- */
 class ItemRequestBody {
 
     /**

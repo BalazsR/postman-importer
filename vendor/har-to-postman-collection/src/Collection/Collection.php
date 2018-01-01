@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of Collection
- *
- * @author gustavo-rodriguez
- */
 class Collection {
 
     const EXTENSION = 'json';

@@ -2,11 +2,6 @@
 
 namespace HarToPostmanCollection\Collection;
 
-/**
- * Description of ItemRequestData
- *
- * @author gustavo-rodriguez
- */
 class ItemRequestData {
 
     //Types

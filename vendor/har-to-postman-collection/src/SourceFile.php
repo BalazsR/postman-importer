@@ -4,11 +4,6 @@ namespace HarToPostmanCollection;
 
 use Exception;
 
-/**
- * Description of SourceFile
- *
- * @author gustavo-rodriguez
- */
 class SourceFile {
 
     /**
