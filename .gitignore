@@ -1,2 +1,2 @@
-/vendor/*
-!/vendor/postman-importer
+/vendor/composer
+/vendor/autoload.php
