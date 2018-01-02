@@ -1,17 +1,17 @@
 <?php
 
-//Include composer autoload
 include './vendor/autoload.php';
 
-use HarToPostmanCollection\FileConverter;
 use HarToPostmanCollection\JsonConverter;
 
-$fileConverter = new FileConverter(__DIR__, new JsonConverter());
-$result = $fileConverter->run();
-
-//Print result
-printf('HAR TO POSTMAN COLLECTION CONVERTER RESULTS%s', PHP_EOL);
-printf('--------------------------------%s', PHP_EOL);
-foreach ($result as $file => $result) {
-    printf('- SOURCE FILE: %s, STATUS: %s %s', $file, $result ? 'OK' : 'FAIL', PHP_EOL);
+$jsonConverter = new JsonConverter();
+$file_get_contents = file_get_contents('php://input');
+if ($file_get_contents == NULL) {
+    printf("Bad request");
+    return;
 }
+$requestJson = json_decode($file_get_contents, true);
+$harJson = $requestJson['har'];
+$collection = $jsonConverter->convert($harJson);
+$json_response = json_encode($collection->toArray(), JSON_UNESCAPED_SLASHES);
+printf($json_response);
