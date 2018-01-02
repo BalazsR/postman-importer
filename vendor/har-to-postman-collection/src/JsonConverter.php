@@ -11,6 +11,7 @@ use HarToPostmanCollection\Collection\ItemRequestHeader;
 use HarToPostmanCollection\Helpers\PayloadParserHelper;
 
 class JsonConverter {
+    const MOCK_SERVER_URL_VARIABLE_NAME = "{{url}}";
 
     /**
      * Ignore regex urls
@@ -33,11 +34,19 @@ class JsonConverter {
      * Convert logic, creates object for each part of har json,
      * and each part export a postman collection json partial.
      * After creating object, just execute toArray methods and write json file.
-     * 
+     *
      * @param array $harContent
      * @return Collection
      */
     public function convert(array $harContent) {
+        return $this->convertHarToCollection($harContent, "");
+    }
+
+    public function convertReplacingBaseUrl(array $harContent, string $baseUrl) {
+        return $this->convertHarToCollection($harContent, $baseUrl);
+    }
+
+    private function convertHarToCollection(array $harContent, string $baseUrl) {
         //Check first Har content type
         if (is_array($harContent) && !empty($harContent['log'])) {
             $creator = $harContent['log']['creator'];
@@ -97,7 +106,9 @@ class JsonConverter {
 
                     //create collection item
                     $item = new Item();
-                    $item->setName($request['url']);
+                    $requestUrl = $request['url'];
+                    $itemName = str_replace($baseUrl, "", $requestUrl);
+                    $item->setName($itemName);
 
                     //Create request body
                     $body = new ItemRequestBody();
@@ -110,10 +121,12 @@ class JsonConverter {
                     $itemRequest->setDescription('');
                     $itemRequest->setHeader($headers);
                     $itemRequest->setMethod($request['method']);
-                    $itemRequest->setUrl($request['url']);
+                    $itemUrl = str_replace($baseUrl, "" . self::MOCK_SERVER_URL_VARIABLE_NAME . "", $requestUrl);
+                    $itemRequest->setUrl($itemUrl);
+                    $item->setRequest($itemRequest);
+
 
                     //Load item and push
-                    $item->setRequest($itemRequest);
                     $items[] = $item;
                 }
             }
