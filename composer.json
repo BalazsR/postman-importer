@@ -1,7 +1,11 @@
 {
-    "name": "gustaf-uy/postman-importer",
-    "description": "Postman collection importer",
+    "name": "BalazsR/HARtoPostmanCollectionConverter",
+    "description": "HAR to Postman Collection v2.1 converter",
     "authors": [
+        {
+            "name": "Balazs Ruda",
+            "email": "balazs.ruda@gmail.com"
+        },
         {
             "name": "Gustavo Rodriguez",
             "email": "1990Cynet@gmail.com"

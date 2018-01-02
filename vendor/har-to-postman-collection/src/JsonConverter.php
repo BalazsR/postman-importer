@@ -11,7 +11,7 @@ use HarToPostmanCollection\Collection\ItemRequestData;
 use HarToPostmanCollection\Collection\ItemRequestHeader;
 use HarToPostmanCollection\Helpers\PayloadParserHelper;
 
-class HarImporter {
+class JsonConverter {
 
     /**
      * Ignore regex urls

@@ -4,9 +4,9 @@ namespace HarToPostmanCollection;
 
 use HarToPostmanCollection\Collection\Collection;
 use Exception;
-use HarToPostmanCollection\HarImporter;
+use HarToPostmanCollection\JsonConverter;
 
-class Importer
+class FileConverter
 {
 
     const SOURCE_DIRECTORY = '/src/';
@@ -54,9 +54,9 @@ class Importer
                         continue;
                     }
 
-                    $harImporter = new HarImporter();
+                    $jsonConverter = new JsonConverter();
 
-                    $collection = $harImporter->import($sourceFile);
+                    $collection = $jsonConverter->import($sourceFile);
 
                     //Set false as default
                     $result[$file] = false;

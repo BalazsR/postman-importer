@@ -1,6 +1,6 @@
-# Postman collection importer
+# HAR to Postman Collection v2.1 converter
 
-This module provides structure and code for quickly importing .har file and exports .json Postman collection.
+This module provides structure and code for quickly converting HAR schema to Postman Collection v2.1 JSON.
 
 ## Installation
 
@@ -10,7 +10,7 @@ This module provides structure and code for quickly importing .har file and expo
   $ composer install
   ```
 
-## Usage
+## Usage of file conversion
 
   Place your .har files in the `src` directory.
 
