@@ -2,7 +2,6 @@
 
 namespace HarToPostmanCollection;
 
-use HarToPostmanCollection\SourceFile;
 use HarToPostmanCollection\Collection\Collection;
 use HarToPostmanCollection\Collection\Item;
 use HarToPostmanCollection\Collection\ItemRequest;
@@ -31,16 +30,14 @@ class JsonConverter {
     ];
 
     /**
-     * Impor logic, creates object for each part of har file,
-     * and each part export an postmal collection json partial.
+     * Convert logic, creates object for each part of har json,
+     * and each part export a postman collection json partial.
      * After creating object, just execute toArray methods and write json file.
      * 
-     * @param SourceFile $sourceFile
+     * @param array $harContent
      * @return Collection
      */
-    public function import(SourceFile $sourceFile) {
-        $harContent = $sourceFile->getContent();
-
+    public function convert(array $harContent) {
         //Check first Har content type
         if (is_array($harContent) && !empty($harContent['log'])) {
             $creator = $harContent['log']['creator'];

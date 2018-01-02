@@ -20,12 +20,19 @@ class FileConverter
     protected $baseUrl;
 
     /**
+     * @var JsonConverter
+     */
+    protected $jsonConverter;
+
+    /**
      *
      * @param string $baseUrl
+     * @param JsonConverter $jsonConverter
      */
-    public function __construct($baseUrl)
+    public function __construct($baseUrl, JsonConverter $jsonConverter)
     {
         $this->baseUrl = $baseUrl;
+        $this->jsonConverter = $jsonConverter;
     }
 
     /**
@@ -54,9 +61,7 @@ class FileConverter
                         continue;
                     }
 
-                    $jsonConverter = new JsonConverter();
-
-                    $collection = $jsonConverter->import($sourceFile);
+                    $collection = $this->jsonConverter->convert($sourceFile->getContent());
 
                     //Set false as default
                     $result[$file] = false;

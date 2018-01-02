@@ -4,8 +4,9 @@
 include './vendor/autoload.php';
 
 use HarToPostmanCollection\FileConverter;
+use HarToPostmanCollection\JsonConverter;
 
-$fileConverter = new FileConverter(__DIR__);
+$fileConverter = new FileConverter(__DIR__, new JsonConverter());
 $result = $fileConverter->run();
 
 //Print result
