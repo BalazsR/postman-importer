@@ -5,6 +5,7 @@ namespace HarToPostmanCollection;
 use HarToPostmanCollection\Collection\Collection;
 use HarToPostmanCollection\Collection\Item;
 use HarToPostmanCollection\Collection\ItemRequest;
+use HarToPostmanCollection\Collection\ItemResponse;
 use HarToPostmanCollection\Collection\ItemRequestBody;
 use HarToPostmanCollection\Collection\ItemRequestData;
 use HarToPostmanCollection\Collection\ItemRequestHeader;
@@ -83,9 +84,9 @@ class JsonConverter {
                             $itemRequestHeader->setKey($header['name']);
                             $itemRequestHeader->setValue($header['value']);
                             $itemRequestHeader->setDescription('');
-
-                            //Push
-                            $headers[] = $itemRequestHeader;
+//
+//                            //Push
+//                            $headers[] = $itemRequestHeader;
                         }
                     }
 
@@ -100,7 +101,7 @@ class JsonConverter {
                             $data->setValue($value);
 
                             //Push
-                            $bodyData[] = $data;
+//                            $bodyData[] = $data;
                         }
                     }
 
@@ -112,7 +113,7 @@ class JsonConverter {
 
                     //Create request body
                     $body = new ItemRequestBody();
-                    $body->setMode('formdata');
+//                    $body->setMode('formdata');
                     $body->setData($bodyData);
 
                     //Create request
@@ -125,6 +126,18 @@ class JsonConverter {
                     $itemRequest->setUrl($itemUrl);
                     $item->setRequest($itemRequest);
 
+                    //Create response
+                    $response = $entry['response'];
+                    $itemResponse = new ItemResponse();
+                    $itemResponse->setId(md5($itemName));
+                    $itemResponse->setName($itemName);
+                    $itemResponse->setStatus($response['statusText']);
+                    $itemResponse->setCode($response['status']);
+                    $itemResponse->setBody($response['content']['text']);
+                    $itemResponse->setOriginalRequest($itemRequest);
+                    $responses = [];
+                    $responses[0] = $itemResponse;
+                    $item->setResponse($responses);
 
                     //Load item and push
                     $items[] = $item;

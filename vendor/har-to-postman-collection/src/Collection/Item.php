@@ -23,6 +23,11 @@ class Item {
     protected $request;
 
     /**
+     * @var array
+     */
+    protected $response;
+
+    /**
      * 
      * @return string
      */
@@ -44,6 +49,14 @@ class Item {
      */
     public function getRequest() {
         return $this->request;
+    }
+
+    /**
+     * @return array
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 
     /**
@@ -71,6 +84,14 @@ class Item {
     }
 
     /**
+     * @param array $response
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+    }
+
+    /**
      * 
      * @return array
      */
@@ -79,6 +100,9 @@ class Item {
             'name' => $this->name,
             'event' => $this->event instanceof ItemEvent ? $this->event->toArray() : [],
             'request' => $this->request instanceof ItemRequest ? $this->request->toArray() : [],
+            'response' => array_map(function(ItemResponse $response) {
+                return $response->toArray();
+            }, $this->response)
         ];
     }
 
